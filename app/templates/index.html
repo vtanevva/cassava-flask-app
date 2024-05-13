@@ -1,20 +1,39 @@
 <!-- index.html -->
 <html>
 <head>
-    <title>Prediction Result</title>
+    <title>Cassava disease detection web app</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Upload an image for prediction</h1>
+    <img src="../static/images/pot.png" alt="pot" width="200" height="200"/>
+    <h1 style="text-align: center;">Upload an image for <br> prediction</h1>
     <form method="post" enctype="multipart/form-data">
-        <input type="file" name="image" required>
-        <input type="submit" value="Predict">
-    </form>
+        <label class="custom-file-upload">
+            <input type="file" id="imageInput" name="image" required>
+            Choose Image
+        </label>
+                <input type="submit" id="submit" value="Make a prediction"> 
+        <img id="imagePreview" src="#" alt="Image Preview" style="display:none; width: 200px;"> 
+    </form> 
 
-    {% if prediction is not none %}
-        <h2>Prediction: {{ prediction }}</h2>
+    {% if message %}
+        <h2>{{ message }}</h2>
     {% else %}
-        <h2>No prediction available or image not provided</h2>
+        <h2></h2>
     {% endif %}
+
+    <script>
+        document.getElementById('imageInput').addEventListener('change', function(event){
+            var reader = new FileReader();
+            reader.onload = function(){
+                var output = document.getElementById('imagePreview');
+                output.src = reader.result;
+                output.style.display = 'block';
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        });
+    </script>
 </body>
+
 </html>
 

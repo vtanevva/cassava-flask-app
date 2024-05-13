@@ -1,5 +1,9 @@
 from flask import Flask
 
-app = Flask(__name__)
+def create_app():
+    app = Flask(__name__)
+    
+    from .routes import configure_routes
+    configure_routes(app)  # Now we pass the app instance to the function
 
-from app import routes
+    return app
