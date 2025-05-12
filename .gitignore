@@ -25,6 +25,8 @@ myenv/
 # Logs
 *.log
 
+.keras
+
 # IDE files
 .idea/
 

@@ -4,3 +4,4 @@ flask
 numpy
 keras
 Pillow
+flask-cors  
