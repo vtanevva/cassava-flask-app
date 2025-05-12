@@ -1,0 +1,32 @@
+# Node modules
+/node_modules/
+
+# Build directory
+/dist/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Python bytecode files
+*.pyc
+*.pyo
+
+# VSCode settings
+.vscode/
+
+# Environment variables files
+.env
+
+# Python virtual environment
+venv/
+myenv/
+
+# Logs
+*.log
+
+# IDE files
+.idea/
+
+# CSV files (if you don't want to track them)
+submission.csv

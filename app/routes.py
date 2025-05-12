@@ -34,7 +34,7 @@ def configure_routes(app):
                     
                     return render_template('index.html', message=message)
                 else:
-                    return "No image provided", 400
+                    return "Please provide an image of Cassava plant", 400
             else:
                 return render_template('index.html', message=message)
 

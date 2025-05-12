@@ -1,4 +1,3 @@
-<!-- index.html -->
 <html>
 <head>
     <title>Cassava disease detection web app</title>
@@ -16,11 +15,7 @@
         <img id="imagePreview" src="#" alt="Image Preview" style="display:none; width: 200px;"> 
     </form> 
 
-    {% if message %}
-        <h2>{{ message }}</h2>
-    {% else %}
-        <h2></h2>
-    {% endif %}
+    <h2 id="messageDisplay">{{ message }}</h2>
 
     <script>
         document.getElementById('imageInput').addEventListener('change', function(event){
@@ -31,6 +26,9 @@
                 output.style.display = 'block';
             };
             reader.readAsDataURL(event.target.files[0]);
+
+            var messageDisplay = document.getElementById('messageDisplay');
+            messageDisplay.textContent = '';  
         });
     </script>
 </body>
